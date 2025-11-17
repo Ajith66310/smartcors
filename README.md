@@ -190,4 +190,3 @@ MIT License © 2025
 [![npm version](https://img.shields.io/npm/v/smartcors.svg)](https://www.npmjs.com/package/smartcors)
 [![npm downloads](https://img.shields.io/npm/dm/smartcors.svg)](https://www.npmjs.com/package/smartcors)
 
-1760bcf97d0800979b2589e1c3f4a916ed60acdf
