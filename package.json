@@ -1,10 +1,10 @@
 {
   "name": "smartcors",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A smart, secure, flexible CORS wrapper for Express with wildcard, regex, and environment-aware origin matching.",
   "main": "index.js",
   "type": "module",
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/Ajith66310/smartcors.git"
   },
