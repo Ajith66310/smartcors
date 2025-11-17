@@ -5,28 +5,28 @@ It extends the official cors library with wildcards, regex support, auto localho
 
 **Features**
 
-Wildcard domain support — e.g., *.example.com
+• Wildcard domain support — e.g., *.example.com
 
-Regex origin matching — e.g., /\.mydomain\.com$/
+• Regex origin matching — e.g., /\.mydomain\.com$/
 
-Automatic localhost origins in development (3000, 5173, 5174)
+• Automatic localhost origins in development (3000, 5173, 5174)
 
-Environment variable support (ALLOWED_ORIGINS)
+• Environment variable support (ALLOWED_ORIGINS)
 
-Drop-in replacement wrapper for the cors package
+• Drop-in replacement wrapper for the cors package
 
-Safe defaults — unknown origins are rejected
+• Safe defaults — unknown origins are rejected
 
-Fixes common CORS issues automatically
+• Fixes common CORS issues automatically
 
-Lightweight & zero-dependency (except cors)
+• Lightweight & zero-dependency (except cors)
 
 
 **Installation**
 
 <pre>
 <code> 
-   npm install smartcors
+npm install smartcors
 </code>
 </pre>
 or
@@ -40,7 +40,6 @@ yarn add smartcors
 
 <pre>
 <code>
-
 import express from "express";
 import smartcors from "smartcors";
 
@@ -57,13 +56,12 @@ app.get("/", (req, res) => {
 });
 
 app.listen(3000);
-
 </code>
 </pre>
 
 **Advanced Usage** 
 
-Allow multiple patterns: exact, wildcard, and regex
+• Allow multiple patterns: exact, wildcard, and regex
 
 <pre>
 <code>
@@ -105,61 +103,60 @@ ALLOWED_ORIGINS=https://site1.com, https://site2.com, *.mydomain.com
  <pre>
  <code>
  import express from "express";
-import smartcors from "smartcors";
+ import smartcors from "smartcors";
 
-const router = express.Router();
+ const router = express.Router();
 
-router.get("/products", (req, res) => {
+ router.get("/products", (req, res) => {
   res.json({ status: "ok" });
-});
+ });
 
-app.use("/api", smartcors({ allowCredentials: true }), router);
-
+ app.use("/api", smartcors({ allowCredentials: true }), router);
  </code>
  </pre>
 
 
- **Why smartcors?**
+**Why smartcors?**
 
-CORS errors are one of the most common headaches in web development.
-smartcors fixes them by adding features that cors alone does not support:
+ CORS errors are one of the most common headaches in web development.
+ smartcors fixes them by adding features that cors alone does not support:
 
- Problem: Wildcard matching not supported
+ • Problem: Wildcard matching not supported
 
- smartcors supports *.domain.com
+ • smartcors supports *.domain.com
 
- Problem: Regex origin filtering is required
+ • Problem: Regex origin filtering is required
 
- smartcors supports RegExp objects
+ • smartcors supports RegExp objects
 
- Problem: Localhost ports constantly change
+ • Problem: Localhost ports constantly change
 
- Automatically whitelists common dev ports
+ • Automatically whitelists common dev ports
 
- Problem: Hard to manage origins in large apps
+ • Problem: Hard to manage origins in large apps
 
- Supports .env-based origin lists
+ • Supports .env-based origin lists
 
- Problem: CORS misconfiguration causes security issues
+ • Problem: CORS misconfiguration causes security issues
 
- Provides safe defaults and explicit origin filtering
+ • Provides safe defaults and explicit origin filtering
 
  **How It Works (Internals)**
 
- Merges origins from:
+ • Merges origins from:
 
  **code → environment → auto localhost**
 
- Each incoming request origin is tested against all patterns:
+ • Each incoming request origin is tested against all patterns:
 
- Exact match
+ • Exact match
 
- Wildcard match (*.example.com)
+ • Wildcard match (*.example.com)
 
- Regex match (/\.domain\.com$/)
+ • Regex match (/\.domain\.com$/)
 
- Unmatched origins return:
- "Not allowed by smartcors"
+ • Unmatched origins return:
+  "Not allowed by smartcors"
 
  **Example Project Structure**
 
@@ -168,11 +165,12 @@ smartcors fixes them by adding features that cors alone does not support:
  SMARTCORS/
 ├── test
 ├── index.js
+├── index.d.ts
 ├── smartcors.js
 ├── matcher.js
 ├── README.md
 ├── LICENSE
-├── .gitignore
+├── .gitignore    
 ├── package-lock.json
 └── package.json
  </code>
