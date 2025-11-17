@@ -21,3 +21,10 @@ export function matchOrigin(origin, allowed) {
 
   return false;
 }
+
+
+/**
+ * @param {string} origin
+ * @param {(string|RegExp)[]} allowed
+ * @returns {boolean}
+ */

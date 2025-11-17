@@ -41,3 +41,15 @@ export default function smartcors(options = {}) {
     optionsSuccessStatus: 204,
   });
 }
+
+/**
+ * @typedef {Object} SmartCORSOptions
+ * @property {(string|RegExp)[]} [allowedOrigins]
+ * @property {boolean} [allowCredentials]
+ * @property {boolean} [debug]
+ */
+
+/**
+ * @param {SmartCORSOptions} options
+ * @returns {import("express").RequestHandler}
+ */
