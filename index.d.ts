@@ -2,7 +2,6 @@
  * Type declarations for smartcors
  * A smart CORS wrapper for Express applications.
  */
-
 declare module "smartcors" {
   import { RequestHandler } from "express";
 
@@ -20,7 +19,7 @@ declare module "smartcors" {
 
     /**
      * Enable support for cookies & Authorization headers.
-     * Equivalent to standard CORS credentials: true
+     * Equivalent to standard CORS `credentials: true`
      */
     allowCredentials?: boolean;
 
@@ -35,9 +34,14 @@ declare module "smartcors" {
    *
    * Example:
    * ```ts
+   * import express from "express";
+   * import smartcors from "smartcors";
+   * 
+   * const app = express();
    * app.use(smartcors({
    *   allowedOrigins: ["https://myapp.com", /\.mydomain\.com$/],
-   *   allowCredentials: true
+   *   allowCredentials: true,
+   *   debug: true
    * }));
    * ```
    */
@@ -48,6 +52,7 @@ declare module "smartcors" {
    *
    * Example:
    * ```ts
+   * import { matchOrigin } from "smartcors";
    * matchOrigin("https://api.test.com", ["*.test.com"]);
    * ```
    */

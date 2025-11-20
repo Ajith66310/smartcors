@@ -1,7 +1,7 @@
 **smartcors**
 
 A smart, environment-aware CORS wrapper for Express applications.
-It extends the official cors library with wildcards, regex support, auto localhost whitelisting, and environment-based origin management — making CORS configuration easier, safer, and more powerful.
+It extends the official cors library with wildcards, regex support, auto localhost whitelisting, environment-based origin management, and dynamic production origin detection — making CORS configuration easier, safer, and fully plug-and-play.
 
 **Features**
 
@@ -12,6 +12,10 @@ It extends the official cors library with wildcards, regex support, auto localho
 • Automatic localhost origins in development (3000, 5173, 5174)
 
 • Environment variable support (ALLOWED_ORIGINS)
+
+• Auto-detect production deployment URLs (Vercel, Render)
+
+• Dynamic runtime whitelisting of first unknown frontend origin in production
 
 • Drop-in replacement wrapper for the cors package
 
@@ -78,26 +82,7 @@ app.use(
 );
 </code>
 </pre>
-
-
-**Using Environment Variables**
-
-You can define allowed origins via environment variables:**.env**
-
-<pre>
-<code>
-ALLOWED_ORIGINS=https://site1.com, https://site2.com, *.mydomain.com
-</code>
-</pre>
-
-**smartcors automatically merges**
-
-**1.** allowedOrigins (code)
-
-**2.** ALLOWED_ORIGINS (environment)
-
-**3.** Localhost dev origins (3000, 5173, 5174) when not in production
-
+ 
  **Example With Express Router**
 
  <pre>
@@ -121,31 +106,21 @@ ALLOWED_ORIGINS=https://site1.com, https://site2.com, *.mydomain.com
  CORS errors are one of the most common headaches in web development.
  smartcors fixes them by adding features that cors alone does not support:
 
- • Problem: Wildcard matching not supported
+ • Wildcard matching — smartcors supports *.domain.com
 
- • smartcors supports *.domain.com
+• Regex origin filtering — smartcors supports RegExp objects
 
- • Problem: Regex origin filtering is required
+• Dev localhost whitelisting — automatically allows common dev ports
 
- • smartcors supports RegExp objects
+• Hard-to-manage production origins — supports .env lists, auto-detects Vercel/Render, dynamically adds first unknown frontend origin
 
- • Problem: Localhost ports constantly change
-
- • Automatically whitelists common dev ports
-
- • Problem: Hard to manage origins in large apps
-
- • Supports .env-based origin lists
-
- • Problem: CORS misconfiguration causes security issues
-
- • Provides safe defaults and explicit origin filtering
+• Safe defaults — unmatched origins are rejected
 
  **How It Works (Internals)**
 
  • Merges origins from:
 
- **code → environment → auto localhost**
+code → environment → auto localhost → auto production URLs → dynamic runtime
 
  • Each incoming request origin is tested against all patterns:
 
@@ -155,8 +130,7 @@ ALLOWED_ORIGINS=https://site1.com, https://site2.com, *.mydomain.com
 
  • Regex match (/\.domain\.com$/)
 
- • Unmatched origins return:
-  "Not allowed by smartcors"
+ • Unmatched origins return: "Not allowed by smartcors"
 
  **Example Project Structure**
 
