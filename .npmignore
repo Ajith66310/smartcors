@@ -1,0 +1,5 @@
+test/
+tests/
+*.test.js
+*.spec.js
+__tests__/
