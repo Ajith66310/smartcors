@@ -1,21 +1,44 @@
 {
   "name": "smartcors",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A smart, secure, flexible CORS wrapper for Express with wildcard, regex, and environment-aware origin matching.",
-  "main": "index.js",
+  "main": "./index.cjs",
+  "module": "./index.js",
+  "types": "./index.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "require": "./index.cjs"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.cjs",
+    "smartcors.js",
+    "smartcors.cjs",
+    "matcher.js",
+    "matcher.cjs",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Ajith66310/smartcors.git"
   },
-  "types": "index.d.ts",
-  "exports": "./index.js",
   "keywords": [
     "cors",
     "express",
     "middleware",
     "security",
-    "smartcors"
+    "smartcors",
+    "wildcard",
+    "subdomain"
   ],
   "author": "Ajith k v",
   "license": "MIT",
