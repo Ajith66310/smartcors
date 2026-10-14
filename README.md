@@ -12,15 +12,15 @@ A smart, secure, and environment-aware CORS wrapper for Express applications.
 
 ## Features
 
-- 🔒 **Secure by Default** — Cleanly rejects unauthorized origins without crashing Express or leaking credentials.
-- 🌐 **Subdomain Wildcards** — Full support for `*.domain.com` and `https://*.domain.com`.
-- 🔍 **Regex & Custom Functions** — Match origins using RegExp or custom predicate functions.
-- 💻 **Automatic Localhost in Dev** — Automatically whitelists `localhost` and `127.0.0.1` ports when `NODE_ENV !== 'production'`.
-- ⚙️ **Environment Variable Support** — Read comma-separated origins from `ALLOWED_ORIGINS` directly.
-- 🚀 **Cloud-Aware** — Auto-detects deployment URLs (Vercel, Render, Railway).
-- 📦 **Dual ESM & CommonJS** — First-class support for both `import` and `require()`.
-- 📘 **TypeScript Ready** — Includes complete TypeScript type definitions out of the box.
-- ⚡ **Zero Bloat** — Lightweight and depends only on official `cors`.
+- **Secure by Default** — Cleanly rejects unauthorized origins without crashing Express or leaking credentials.
+- **Subdomain Wildcards** — Full support for `*.domain.com` and `https://*.domain.com`.
+- **Regex & Custom Functions** — Match origins using RegExp or custom predicate functions.
+- **Automatic Localhost in Dev** — Automatically whitelists `localhost` and `127.0.0.1` ports when `NODE_ENV !== 'production'`.
+- **Environment Variable Support** — Read comma-separated origins from `ALLOWED_ORIGINS` directly.
+- **Cloud-Aware** — Auto-detects deployment URLs (Vercel, Render, Railway).
+- **Dual ESM & CommonJS** — First-class support for both `import` and `require()`.
+- **TypeScript Ready** — Includes complete TypeScript type definitions out of the box.
+- **Zero Bloat** — Lightweight and depends only on official `cors`.
 
 ---
 
